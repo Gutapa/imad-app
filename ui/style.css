@@ -1,7 +1,4 @@
-body {
-    font-family: sans-serif;
-    margin-top: 75px;
-}
+
 
 .center {
     text-align: center;
@@ -19,7 +16,7 @@ body {
     height: 400px;
 }
 
-body.container{
+.container{
     max-width: 800px;
     margin: 0 auto;
     padding-top: 80px;
