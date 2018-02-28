@@ -5,20 +5,46 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article One I Krishna Gupta',
-    heading: 'Article One',
-    date: 'Feb 28,2018',
-    content: `
-                <p>
-                    This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
-                </p>
-                <p>
-                    This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
-                </p>
-                <p>
-                    This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
-                </p>`
+var articles = {
+    `article-one`: {
+        title: 'Article One I Krishna Gupta',
+        heading: 'Article One',
+        date: 'Feb 28,2018',
+        content: `
+                    <p>
+                        This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
+                    </p>
+                    <p>
+                        This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
+                    </p>
+                    <p>
+                        This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
+                    </p>`
+    },
+    `article-two`: {
+        title: 'Article Two I Krishna Gupta',
+        heading: 'Article Two',
+        date: 'March 1,2018',
+        content: `
+                    <p>
+                        This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
+                    </p>`
+    },
+    `article-three`:{
+        title: 'Article Three I Krishna Gupta',
+        heading: 'Article Three',
+        date: 'March 1,2018',
+        content: `
+                    <p>
+                        This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
+                    </p>
+                    <p>
+                        title: 'Article Three I Krishna Gupta',
+                        heading: 'Article Three',
+                        date: 'March 1,2018',
+                    </p>
+                  `
+    }
 };
 
 function createTemplate (data){
@@ -56,20 +82,21 @@ function createTemplate (data){
     return htmlTemplate;
 }
 
-app.get('/article-one', function (req, res){
-   res.send(createTemplate(articleOne));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/:articleName', function (req, res){
+   res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+   res.send(createTemplate)
 });
 
 app.get('/article-three', function(req, res){
    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/ui/style.css', function (req, res) {
