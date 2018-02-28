@@ -6,9 +6,9 @@ var app = express();
 app.use(morgan('combined'));
 
 var articleOne = {
-    title: 'Article One',
+    title: 'Article One I Krishna Gupta',
     heading: 'Article One',
-    date: 'Sep 5,2016',
+    date: 'Feb 28,2018',
     content: `
                 <p>
                     This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.This is my First article at Imad.
